@@ -1,0 +1,48 @@
+---
+name: 'Build app'
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+
+jobs:
+  fyne-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get dependencies
+        run: sudo apt-get update && sudo apt-get install gcc libgl1-mesa-dev libegl1-mesa-dev libgles2-mesa-dev libx11-dev xorg-dev
+        if: ${{ runner.os == 'Linux' }}
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+            go-version: '^1.17'
+      - name: Build
+        run: |
+          VERSION=0.0.0
+          SHORTREF=${GITHUB_SHA::8}
+          # If this is git tag, use the tag name as a docker tag
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+          fi
+
+          go get fyne.io/fyne/v2
+          make BUNDLE_NAME=golauncher-$VERSION-$SHORTREF  release
+          mkdir build
+          mv *.tar.xz build/
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: golauncher
+          path: build
+          if-no-files-found: error
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            build/*

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+event="$1"
+payload="$2"
+res=
+state=
+
+if [ "$event" == "search" ]; then
+  # Search into ps aux the user input and return an action
+  s=$(echo "$payload" | jq -r .data | jq -r .Term )
+  res=$(wmctrl -l | grep -i $s | awk '{$1="";$2="";$3=""}1' | head -n1)
+  if [ -n "$res" ]; then
+    res="{ \"response\": [ \"window: $res\" ] }"
+  fi
+fi
+
+if [ "$event" == "submit" ]; then
+  # If we match the action, select a window
+  s=$(echo "$payload" | jq -r .data | jq -r .Term )
+  
+  if echo $s | grep -q "window"; then
+    p=$(echo $s | sed 's/.*window: //g')
+    wmctrl -a $p
+    state="Focus $p"
+  fi
+fi
+
+jq --arg key0   'state' \
+    --arg value0 "$state" \
+    --arg key1   'data' \
+    --arg value1 "$res" \
+    --arg key2   'error' \
+    --arg value2 '' \
+    '. | .[$key0]=$value0 | .[$key1]=$value1 | .[$key2]=$value2' \
+    <<<'{}'

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+event="$1"
+payload="$2"
+res=
+state=
+
+if [ "$event" == "search" ]; then
+  # Search into ps aux the user input and return an action
+  s=$(echo "$payload" | jq -r .data | jq -r .Term )
+  d=$(ps aux | grep -i $s | grep -v grep | head -n1)
+  pid=$(echo $d | awk '{ print $2 }')
+  name=$(cat /proc/$pid/cmdline | strings -1 | head -n1)
+  if [ -n "$d" ]; then
+    res="{ \"response\": [ \"Kill process $name pid:$pid\" ] }"
+  fi
+fi
+
+if [ "$event" == "submit" ]; then
+  # If we match the action, kill the process and return the state
+  s=$(echo "$payload" | jq -r .data | jq -r .Term )
+  
+  if echo $s | grep -q "pid"; then
+    p=$(echo $s | sed 's/.*pid://g')
+    kill -9 $p
+    state="Killed $p"
+  fi
+fi
+
+jq --arg key0   'state' \
+    --arg value0 "$state" \
+    --arg key1   'data' \
+    --arg value1 "$res" \
+    --arg key2   'error' \
+    --arg value2 '' \
+    '. | .[$key0]=$value0 | .[$key1]=$value1 | .[$key2]=$value2' \
+    <<<'{}'
