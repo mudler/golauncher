@@ -35,6 +35,17 @@ golauncher is a simple, highly extensible application launcher written in Golang
 
 Works on i3, Xfce, GNOME, Plasma, fynedesk, ...
 
+# :ledger: Features
+
+The basic plugin set adds the following functionalities to golauncher:
+
+- Window fuzzy search
+- Program fuzzy search
+- Opening URLs
+- Taking screenshot
+- Process kill
+- ..... add yours!
+
 # :computer: Installation
 
 Download the [release](https://github.com/mudler/golauncher/releases), extract the tarball in your system and run `make install`.
