@@ -1,0 +1,43 @@
+# Window background
+colornamebackground:
+  r: 13
+  g: 2
+  b: 8
+  a: 255
+# Box background color
+colornameinputbackground:
+  r: 0
+  g: 59
+  b: 0
+  a: 255
+# Primary color
+colornameprimary:
+  r: 0
+  g: 255
+  b: 65
+  a: 255
+# Text color
+colornameforeground:
+  r: 0
+  g: 255
+  b: 65
+  a: 255
+# Default color, used also for hover
+defaultcolor:
+  r: 0
+  g: 143
+  b: 17
+  a: 255
+# Scrollbar color
+colornamescrollbar:
+  r: 0
+  g: 0
+  b: 0
+  a: 153
+# Shadow color
+colornameshadow:
+  r: 0
+  g: 0
+  b: 0
+  a: 102
+
