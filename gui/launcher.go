@@ -23,6 +23,7 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
+	"fyne.io/fyne/v2/widget"
 	fynexWidget "fyne.io/x/fyne/widget"
 	"github.com/0xAX/notificator"
 	pluggable "github.com/mudler/go-pluggable"
@@ -49,9 +50,24 @@ func (c *Launcher) Reload(app fyne.App) {
 
 	entry := fynexWidget.NewCompletionEntry([]string{})
 	entry.Wrapping = fyne.TextWrapBreak
+
+	var selection interface{}
+
+	entry.OnMenuNavigation = func(w widget.ListItemID) {
+		selection = true
+	}
+
 	entry.OnSubmitted = func(s string) {
 		if len(s) < 3 {
 			return
+		}
+
+		if selection == nil {
+			// Nothing was selected and user hit enter
+			// act as user selected the first item
+			if len(entry.Options) > 0 {
+				s = entry.Options[0]
+			}
 		}
 
 		res := c.pluginSubmit(submitEvent, s)

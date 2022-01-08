@@ -5,7 +5,7 @@ go 1.17
 require fyne.io/fyne/v2 v2.1.2
 
 require (
-	fyne.io/x/fyne v0.0.0-20211210044345-46cf1d06cf7e
+	fyne.io/x/fyne v0.0.0-00010101000000-000000000000
 	github.com/0xAX/notificator v0.0.0-20210731104411-c42e3d4a43ee
 	github.com/kbinani/screenshot v0.0.0-20210720154843-7d3a670d8329
 	github.com/mudler/go-pluggable v0.0.0-20211206135551-9263b05c562e
@@ -31,6 +31,7 @@ require (
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/lxn/win v0.0.0-20210218163916-a377121e959e // indirect
 	github.com/magefile/mage v1.10.0 // indirect
+	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/onsi/ginkgo v1.16.4 // indirect
 	github.com/onsi/gomega v1.16.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -47,3 +48,5 @@ require (
 	golang.org/x/text v0.3.6 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
+
+replace fyne.io/x/fyne => github.com/mudler/fyne-x v0.0.0-20220108211532-2ff05687c54d
