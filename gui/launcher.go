@@ -23,8 +23,9 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
+	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
-	fynexWidget "fyne.io/x/fyne/widget"
+	fyneX "fyne.io/x/fyne/widget"
 	"github.com/0xAX/notificator"
 	pluggable "github.com/mudler/go-pluggable"
 	"go.deanishe.net/fuzzy"
@@ -46,9 +47,15 @@ const (
 	appName     string              = "golauncher"
 )
 
+func listSize(n int) float32 {
+	l := widget.NewList(func() int { return 1 }, func() fyne.CanvasObject { return widget.NewEntry() }, func(lii widget.ListItemID, f fyne.CanvasObject) {})
+	ss := l.MinSize()
+	return float32(n)*(ss.Height+2*theme.Padding()+theme.SeparatorThicknessSize()) + 2*theme.Padding()
+}
+
 func (c *Launcher) Reload(app fyne.App) {
 
-	entry := fynexWidget.NewCompletionEntry([]string{})
+	entry := fyneX.NewCompletionEntry([]string{})
 	entry.Wrapping = fyne.TextWrapBreak
 
 	var selection interface{}
@@ -112,13 +119,17 @@ func (c *Launcher) Reload(app fyne.App) {
 		// then show them
 		entry.SetOptions(results)
 
-		c.window.Resize(c.defaultSize.Add(fyne.NewSize(0, 60*fyne.Min(float32(len(results)), 2))))
+		// resize the window based on the option results
+		ls := listSize(len(results))
+		if ls > 480/2 {
+			ls = 480 / 2
+		}
+
+		c.window.Resize(c.defaultSize.Add(fyne.NewSize(0, ls)))
 
 		entry.ShowCompletion()
 	}
-	s := container.NewVSplit(entry, layout.NewSpacer())
-
-	s.SetOffset(0.2)
+	s := container.NewBorder(entry, nil, nil, nil, layout.NewSpacer())
 	c.window.SetContent(
 		container.NewAdaptiveGrid(1, s),
 	)
@@ -182,6 +193,7 @@ func (c *Launcher) loadUI(app fyne.App) {
 	c.Reload(app)
 
 	c.window.SetFixedSize(true)
+
 	c.window.Resize(c.defaultSize)
 	c.window.SetPadded(true)
 	c.window.CenterOnScreen()
@@ -192,7 +204,7 @@ func (c *Launcher) loadUI(app fyne.App) {
 func newLauncher(pluginDir string) *Launcher {
 	return &Launcher{
 		pluginDir:   pluginDir,
-		defaultSize: fyne.NewSize(640, 30),
+		defaultSize: fyne.NewSize(640, listSize(1)),
 		notifier: notificator.New(notificator.Options{
 			AppName: appName,
 		}),

@@ -23,7 +23,10 @@ func main() {
 			},
 		},
 		Action: func(c *cli.Context) error {
-			gui.Run(c.String("theme"), c.String("plugin-dir"))
+			gui.Run(
+				c.String("theme"),
+				c.String("plugin-dir"),
+			)
 			return nil
 		},
 	}
