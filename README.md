@@ -85,7 +85,7 @@ All the current functionalities of golauncher are split into separate plugins. P
 
 # :art: Themes
 
-Golauncher supports custom themes, you can find examples inside the [themes](https://github.com/mudler/golauncher/tree/master/themes) folder.
+Golauncher supports custom themes, you can find examples inside the [themes](https://github.com/mudler/golauncher/tree/master/themes) folder, check also the [gallery in the wiki](https://github.com/mudler/golauncher/wiki/Themes-gallery).
 
 To run golauncher with a theme, run:
 
