@@ -16,27 +16,37 @@
 package gui
 
 import (
-	"fmt"
 	"io/ioutil"
 
+	"fyne.io/fyne/v2"
+	theme "fyne.io/fyne/v2/theme"
+
 	"fyne.io/fyne/v2/app"
-	"gopkg.in/yaml.v2"
+	"github.com/ghodss/yaml"
 )
 
 //go:generate fyne bundle -package gui -o data.go ../Icon.png
 
-func Run(theme, pluginDir string) {
-	app := app.New()
-	t := NewTheme()
-
-	if theme != "" {
-		b, err := ioutil.ReadFile(theme)
+// Load theme. Best effort
+func loadTheme(t string, app fyne.App) {
+	if t != "" {
+		b, err := ioutil.ReadFile(t)
 		if err == nil {
-			fmt.Println("Loading theme", theme)
-			yaml.Unmarshal(b, t)
+			jb, err := yaml.YAMLToJSON(b)
+			if err == nil {
+				t, err := theme.FromJSON(string(jb))
+				if err == nil {
+					app.Settings().SetTheme(t)
+				}
+			}
 		}
 	}
-	app.Settings().SetTheme(t)
+}
+
+func Run(tn, pluginDir string) {
+	app := app.New()
+
+	loadTheme(tn, app)
 	app.SetIcon(resourceIconPng)
 
 	c := newLauncher(pluginDir)

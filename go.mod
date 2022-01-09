@@ -2,17 +2,17 @@ module github.com/mudler/golauncher
 
 go 1.17
 
-require fyne.io/fyne/v2 v2.1.2
+require fyne.io/fyne/v2 v2.1.2-rc2.0.20220107003733-0e6d56b7553c
 
 require (
 	fyne.io/x/fyne v0.0.0-00010101000000-000000000000
 	github.com/0xAX/notificator v0.0.0-20210731104411-c42e3d4a43ee
+	github.com/ghodss/yaml v1.0.0
 	github.com/kbinani/screenshot v0.0.0-20210720154843-7d3a670d8329
 	github.com/mudler/go-pluggable v0.0.0-20211206135551-9263b05c562e
 	github.com/sahilm/fuzzy v0.1.0
 	github.com/urfave/cli v1.22.5
 	go.deanishe.net/fuzzy v1.0.0
-	gopkg.in/yaml.v2 v2.4.0
 	mvdan.cc/xurls/v2 v2.3.0
 )
 
@@ -23,9 +23,9 @@ require (
 	github.com/fredbi/uri v0.0.0-20181227131451-3dcfdacbaaf3 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gen2brain/shm v0.0.0-20200228170931-49f9650110c5 // indirect
-	github.com/go-gl/gl v0.0.0-20210813123233-e4099ee2221f // indirect
-	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20211024062804-40e447a793be // indirect
-	github.com/godbus/dbus/v5 v5.0.4 // indirect
+	github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6 // indirect
+	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20211213063430-748e38ca8aec // indirect
+	github.com/godbus/dbus/v5 v5.0.6 // indirect
 	github.com/goki/freetype v0.0.0-20181231101311-fa8a33aabaff // indirect
 	github.com/jezek/xgb v0.0.0-20210312150743-0e0f116e1240 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
@@ -46,6 +46,7 @@ require (
 	golang.org/x/net v0.0.0-20210428140749-89ef3d95e781 // indirect
 	golang.org/x/sys v0.0.0-20211123173158-ef496fb156ab // indirect
 	golang.org/x/text v0.3.6 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
 

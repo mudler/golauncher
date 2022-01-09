@@ -1,43 +1,26 @@
-# Window background
-colornamebackground:
-  r: 34
-  g: 40
-  b: 49
-  a: 255
-# Box background color
-colornameinputbackground:
-  r: 57
-  g: 62
-  b: 70
-  a: 255
-# Primary color
-colornameprimary:
-  r: 0
-  g: 173
-  b: 181
-  a: 255
-# Text color
-colornameforeground:
-  r: 238
-  g: 238
-  b: 238
-  a: 255
-# Default color, used also for hover
-defaultcolor:
-  r: 57
-  g: 62
-  b: 70
-  a: 255
-# Scrollbar color
-colornamescrollbar:
-  r: 0
-  g: 0
-  b: 0
-  a: 153
-# Shadow color
-colornameshadow:
-  r: 0
-  g: 0
-  b: 0
-  a: 102
+Colors:
+  background: "#222831"
+  foreground: "#eeeeee"
+  primary: "#00acb5"
+  inputBackground: "#393e46"
+  scrollbar: "#000"
+  shadow: "#000"
+  selection: "#393e46"
+  hover: "#393e46"
 
+# A theme from fyne has the following format:
+# Colors:
+#   background: "#0d0208"
+#   ...
+# Colors-light:
+#   background: "#0d0208"
+#   ... 
+# Colors-dark:
+#   background: "#0d0208"
+#   ... 
+# Sizes:
+#   iconInline: 5.0
+#
+#
+# To see available theme keywords: 
+# https://github.com/andydotxyz/fyne/blob/7e37c42a1748800c042d70b39f8c31d5d545c677/theme/theme.go#L46
