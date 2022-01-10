@@ -25,9 +25,9 @@
 
 <h1 align="center">
   <br>
-	<img src="https://user-images.githubusercontent.com/2420543/147978694-6a5797f7-d2f7-49ea-9c61-48ef027cb5e5.png" 
+	<img src="https://user-images.githubusercontent.com/2420543/148819424-721a57e9-ecd0-4d74-84df-2b09aaad83b1.png" 
          alt="screenshot"><br>
-	<img src="https://user-images.githubusercontent.com/2420543/147978695-ff18c4df-33ac-4b65-9f4b-3676c6edd5de.png" 
+	<img src="https://user-images.githubusercontent.com/2420543/148819473-f5eb2edf-4ed2-4a4c-b494-43303ddd2d1f.png" 
          alt="screenshot"><br>
 </h1>
 
@@ -85,7 +85,7 @@ All the current functionalities of golauncher are split into separate plugins. P
 
 # :art: Themes
 
-Golauncher supports custom themes, you can find examples inside the [themes](https://github.com/mudler/golauncher/tree/master/themes) folder, check also the [gallery in the wiki](https://github.com/mudler/golauncher/wiki/Themes-gallery).
+Golauncher supports custom themes, you can find examples inside the [themes](https://github.com/mudler/golauncher/tree/master/themes) folder.
 
 To run golauncher with a theme, run:
 
@@ -95,18 +95,7 @@ or
 $ golauncher --theme /home/mudler/.golauncher/monokai.yaml
 ```
 
-## `sand`
-
-![Screenshot from 2022-01-07 23-05-33](https://user-images.githubusercontent.com/2420543/148613691-552ab66b-f8e8-45b0-98a0-9cf57807375f.png)
-
-## `blue_light`
-
-![Screenshot from 2022-01-07 23-06-34](https://user-images.githubusercontent.com/2420543/148613697-4ca0c300-b646-4866-8ce3-4308d639d06e.png)
-
-## `blue_night`
-
-![Screenshot from 2022-01-07 23-07-04](https://user-images.githubusercontent.com/2420543/148613703-f9faf52a-4d30-47ec-a70f-1ca9fca9cd7a.png)
-
+Check also the [gallery in the wiki](https://github.com/mudler/golauncher/wiki/Themes-gallery)
 
 # License
 
