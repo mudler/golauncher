@@ -51,7 +51,7 @@ const (
 func listSize(n int) float32 {
 	l := widget.NewList(func() int { return 1 }, func() fyne.CanvasObject { return widget.NewEntry() }, func(lii widget.ListItemID, f fyne.CanvasObject) {})
 	ss := l.MinSize()
-	return float32(n)*(ss.Height+2*theme.Padding()+theme.SeparatorThicknessSize()) + 2*theme.Padding()
+	return float32(n)*(ss.Height+2*theme.Padding()+theme.SeparatorThicknessSize()) + theme.Padding()
 }
 
 func (c *Launcher) Reload(app fyne.App) {
