@@ -4,7 +4,7 @@ Colors:
   primary: "#00ff41"
   inputBackground: "#003b00"
   scrollbar: "#000"
-  shadow: "#000"
+  shadow: "#0d0208"
   selection: "#008f11"
   hover: "#008f11"
 
