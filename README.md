@@ -76,11 +76,37 @@ The plugin directory must contains binary prefixed with `golauncher-` in order t
 
 golauncher is extensible from the bottom up, and indeed the core does provide no functionalities besides the GUI displaying.
 
+## :gear: Building from source
+
+To build `golauncher` run:
+
+```
+$ git clone https://github.com/mudler/golauncher
+$ cd golauncher
+$ make build
+```
+
+Note that plugins are shipping core functionalities of `golauncher` are built separately, in order to build the default plugin set:
+
+```
+$ make -C plugins/ build
+```
+
+This will build the default set of plugins, to try them out you can either run `make test` or:
+
+```
+$ mkdir plugin-build
+$ make DESTDIR=$PWD/plugin-build -C plugins install
+$ golauncher --plugin-dir plugin-build/usr/local/bin/ 
+```
+
 ## :gear: Writing extensions
 
 Extensions can be written in any language. `golauncher` reads binaries starting with `golauncher-` prefix inside  `$PATH` and automatically invokes them while the user is submitting inputs to retrieve results to be displayed to the user. Optionally, golauncher takes a `PLUGIN_DIR` environment variable (or `--plugin-dir` as args) to specify an additional plugin directory to use.
 
-All the current functionalities of golauncher are split into separate plugins. Plugins can be written in any language. For examples on how to extend golauncher, see the [plugin](https://github.com/mudler/golauncher/tree/master/plugins) folder in this repository.
+All the current functionalities of golauncher are split into separate plugins. 
+
+Plugins can be written in any language. For examples on how to extend golauncher, see the [plugin](https://github.com/mudler/golauncher/tree/master/plugins) folder in this repository and the [wiki page](https://github.com/mudler/golauncher/wiki/Create-a-plugin)
 
 
 # :art: Themes
