@@ -22,6 +22,7 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
@@ -129,6 +130,7 @@ func (c *Launcher) Reload(app fyne.App) {
 
 		entry.ShowCompletion()
 	}
+
 	s := container.NewBorder(entry, nil, nil, nil, layout.NewSpacer())
 	c.window.SetContent(
 		container.NewAdaptiveGrid(1, s),
@@ -189,7 +191,13 @@ func (c *Launcher) loadUI(app fyne.App) {
 	c.manager.Response(submitEvent, c.responseHandler(submitEvent))
 	c.manager.Response(searchEvent, c.responseHandler(searchEvent))
 
-	c.window = app.NewWindow(appName)
+	drv := fyne.CurrentApp().Driver()
+	if drv, ok := drv.(desktop.Driver); ok {
+		c.window = drv.CreateSplashWindow()
+	} else {
+		c.window = app.NewWindow(appName)
+	}
+
 	c.Reload(app)
 
 	c.window.SetFixedSize(true)
