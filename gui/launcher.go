@@ -65,7 +65,20 @@ func (c *Launcher) Reload(app fyne.App) {
 		selection = true
 	}
 
+	entry.OnTypeEvent = func(event *fyne.KeyEvent) {
+		switch event.Name {
+		case fyne.KeyEscape:
+			// Quit the app if the user press esc
+			app.Quit()
+		}
+	}
+
 	entry.OnSubmitted = func(s string) {
+		if len(s) == 0 {
+			// Quit the app if the user submit no results
+			app.Quit()
+		}
+
 		if len(s) < 3 {
 			return
 		}
@@ -136,6 +149,7 @@ func (c *Launcher) Reload(app fyne.App) {
 		container.NewAdaptiveGrid(1, s),
 	)
 	c.window.Canvas().Focus(entry)
+
 }
 
 func (c *Launcher) responseHandler(ev pluggable.EventType) func(p *pluggable.Plugin, r *pluggable.EventResponse) {

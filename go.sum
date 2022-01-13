@@ -75,8 +75,8 @@ github.com/lxn/win v0.0.0-20210218163916-a377121e959e h1:H+t6A/QJMbhCSEH5rAuRxh+
 github.com/lxn/win v0.0.0-20210218163916-a377121e959e/go.mod h1:KxxjdtRkfNoYDCUP5ryK7XJJNTnpC8atvtmTheChOtk=
 github.com/magefile/mage v1.10.0 h1:3HiXzCUY12kh9bIuyXShaVe529fJfyqoVM42o/uom2g=
 github.com/magefile/mage v1.10.0/go.mod h1:z5UZb/iS3GoOSn0JgWuiw7dxlurVYTu+/jHXqQg881A=
-github.com/mudler/fyne-x v0.0.0-20220108211532-2ff05687c54d h1:uxT6S09NPhotSAt0vBS0H8SANG9bscYowadrf4zyvDE=
-github.com/mudler/fyne-x v0.0.0-20220108211532-2ff05687c54d/go.mod h1:yq4D2A1RuXW+bTE2DN4SWpFlo1wK5c55IBh91SubTJU=
+github.com/mudler/fyne-x v0.0.0-20220113174306-c448e59b7baa h1:zOEknAJXeUtcI9UiGY1JTHeWjEUYnwIGK7ZZLPIt3lM=
+github.com/mudler/fyne-x v0.0.0-20220113174306-c448e59b7baa/go.mod h1:yq4D2A1RuXW+bTE2DN4SWpFlo1wK5c55IBh91SubTJU=
 github.com/mudler/go-pluggable v0.0.0-20211206135551-9263b05c562e h1:CZI+kJW2+WjZXLWWnVzi6NDQ6SfwSfeNqq5d1iDiwyY=
 github.com/mudler/go-pluggable v0.0.0-20211206135551-9263b05c562e/go.mod h1:WmKcT8ONmhDQIqQ+HxU+tkGWjzBEyY/KFO8LTGCu4AI=
 github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 h1:zYyBkD/k9seD2A7fsi6Oo2LfFZAehjjQMERAvZLEDnQ=
